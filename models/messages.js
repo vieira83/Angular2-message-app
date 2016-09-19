@@ -6,7 +6,7 @@ var schema = new Schema({
 	//
 	content: {
 		type: String,
-		required: True
+		required: true
 	},
 	user: {
 		type: mongoose.Types.ObjectId,// it's different than string we want to refer to the id of the user that was created

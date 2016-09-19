@@ -51,7 +51,11 @@ mongoD –dbpath “/data/db” (path to the data folder contains the database)
 4- MONGOOSE
 Connect to database, before performing any operations:
 mongoose.connect(path:port_number\database_name) – look at mongod message to see the port number used(ex:27017), the database name will be created if it doesn't exist
-	
+	 comand line: 
+		mongo
+		use node-angular
+		db.user.find()
+		db.user.remove({})
 	Model:
 		To create a model, first thing we need to do is setup a schema(blueprint):
 		var mongoose = require('mongoose');
@@ -66,4 +70,21 @@ mongoose.connect(path:port_number\database_name) – look at mongod message to s
 				ref: 'User' // ref means to which model it relates, in this case User model
 		}
 		module.exports = mongoose.model('message', schema)
-	
+
+	Insert Data in Model(mongo) - SAVE:
+
+		var User = require('../models/user');
+		var user = new User({
+			firstName: 'test',
+			lastName:'test',
+			password:'test',
+			email:
+		});
+		user.save();
+
+	Retrieve Data in Model(mongo) – findOne():
+		User.findOne({},function(){
+			if(err) {
+				res.send('Error');
+			}
+		});
