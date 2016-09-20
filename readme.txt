@@ -14,7 +14,10 @@ each request will come here, and then sent to whatever we setup our create serve
 Out app.js in the main root will handle the request an then passed to routes, etc
 ROUTES – directs all routes to their appropriate view(handlebars template)
 ANGULAR Files – Angular files resides in : ASSETS/app folder (write all angular files inside)
-GULP TASK – when you run npm gulp, it takes all the files in the assets folder, compiles them and generates a single file called bunde.js:
+GULP TASK – 
+sudo npm install -g gulp – install gulp
+npm install gulp-jshint gulp-sass gulp-concat gulp-uglify gulp-rename --save-dev
+when you run npm gulp, it takes all the files in the assets folder, compiles them and generates a single file called bunde.js:
 Public/js/bundle.js
 						
 RUN THE APP:
@@ -57,7 +60,7 @@ mongoose.connect(path:port_number\database_name) – look at mongod message to s
 		db.user.find()
 		db.user.remove({})
 	Model:
-		To create a model, first thing we need to do is setup a schema(blueprint):
+To create a model, first thing we need to do is setup a schema(blueprint):
 		var mongoose = require('mongoose');
 		var Schema = mongoose.Schema; //  mongoose schema object for quick access
 		var schema = new Schema({
@@ -71,8 +74,7 @@ mongoose.connect(path:port_number\database_name) – look at mongod message to s
 		}
 		module.exports = mongoose.model('message', schema)
 
-	Insert Data in Model(mongo) - SAVE:
-
+Insert Data in Model(mongo) - SAVE:
 		var User = require('../models/user');
 		var user = new User({
 			firstName: 'test',
@@ -82,9 +84,45 @@ mongoose.connect(path:port_number\database_name) – look at mongod message to s
 		});
 		user.save();
 
-	Retrieve Data in Model(mongo) – findOne():
+Retrieve Data in Model(mongo) – findOne():
 		User.findOne({},function(){
 			if(err) {
 				res.send('Error');
 			}
 		});
+
+
+
+
+
+
+
+
+ANGULAR:
+	START:
+boots.js – boostrap the angular application , telling it the first component to load:
+In the index.hbs :
+System.import('boot') .then(null, console.error.bind(console)); // calls the boots.js
+bootstrap(AppComponent); // bhuilt in command to load the first component
+my-app is the root component, refers to app.component file
+	
+	COMPONENTS:
+@component – typescript decorator, adds a class and metadata to a class 
+metadata – angular allow to transform a class into something else
+Selector – selector used to render the component to
+Data binding – allow dynamic data enter and change also listen o evens like clicks
+ex:  export class AppComponent {
+	message = {
+		content: 'A message',
+		author: 'Vlad'
+	};
+}
+			{{ message.content }} - string inerpolotion
+
+STYLING – CSS
+one way to add styling is add another congiguration to the medata, called STYLES:
+ex: styles: [` 
+.author {
+display:inline;
+} 
+`]  - styles attribute takes an array with string
