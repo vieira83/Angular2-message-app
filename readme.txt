@@ -8,7 +8,7 @@ Folder with basic structure need to build any apps (Includes express)
 3 – DEPENDENCES:
 Install dependences – rum the compand npm install
 
-4- Folder Structure:	
+4- FODLER STRUCTURE:	
 NODE SERVER Files – resides in bin (holds the node server):
 each request will come here, and then sent to whatever we setup our create server app to be (in this case is app.js)
 Out app.js in the main root will handle the request an then passed to routes, etc
@@ -17,22 +17,19 @@ ANGULAR Files – Angular files resides in : ASSETS/app folder (write all angula
 GULP TASK – 
 sudo npm install -g gulp – install gulp
 npm install gulp-jshint gulp-sass gulp-concat gulp-uglify gulp-rename --save-dev
-when you run npm gulp, it takes all the files in the assets folder, compiles them and generates a single file called bunde.js:
+when you run  gulp:
+it takes all the files in the assets folder, compiles them and generates a single file called bunde.js:
 Public/js/bundle.js
+good practice name the files the first portion the foder they are in : ex: app.component, message.component
 						
-RUN THE APP:
+RUN THE NODE APPand server:
 In the terminal run – npm start
 To run tasks – npm gulp
 
 
 NODE FLOW OF REQUESTS:
-	.set -
+	.set – to set properties
 	.get - Middlewares
-
-
-
-
-
 
 
 
@@ -126,3 +123,6 @@ ex: styles: [`
 display:inline;
 } 
 `]  - styles attribute takes an array with string
+
+ngModel -  keyword or directive that allows data binding , it allows two types of binding: property binding and even binding, uses both to listen.
+Ex: [(ngModel)] = “message.content”
