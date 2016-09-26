@@ -6,7 +6,7 @@
 Folder with basic structure need to build any apps (Includes express)
 
 3 – DEPENDENCES:
-Install dependences – rum the compand npm install
+Install dependences – rum the command npm install
 
 4- FODLER STRUCTURE:	
 NODE SERVER Files – resides in bin (holds the node server):
@@ -22,7 +22,7 @@ it takes all the files in the assets folder, compiles them and generates a singl
 Public/js/bundle.js
 good practice name the files the first portion the foder they are in : ex: app.component, message.component
 						
-RUN THE NODE APPand server:
+RUN THE NODE APP and server:
 In the terminal run – npm start
 To run tasks – npm gulp
 
@@ -51,13 +51,13 @@ mongoD –dbpath “/data/db” (path to the data folder contains the database)
 4- MONGOOSE
 Connect to database, before performing any operations:
 mongoose.connect(path:port_number\database_name) – look at mongod message to see the port number used(ex:27017), the database name will be created if it doesn't exist
-	 comand line: 
+	 command line: 
 		mongo
 		use node-angular
 		db.user.find()
 		db.user.remove({})
-	Model:
-To create a model, first thing we need to do is setup a schema(blueprint):
+
+Model:To create a model, first thing we need to do is setup a schema(blueprint):
 		var mongoose = require('mongoose');
 		var Schema = mongoose.Schema; //  mongoose schema object for quick access
 		var schema = new Schema({
@@ -90,17 +90,12 @@ Retrieve Data in Model(mongo) – findOne():
 
 
 
-
-
-
-
-
 ANGULAR:
 	START:
 boots.js – boostrap the angular application , telling it the first component to load:
 In the index.hbs :
 System.import('boot') .then(null, console.error.bind(console)); // calls the boots.js
-bootstrap(AppComponent); // bhuilt in command to load the first component
+bootstrap(AppComponent); // built in command to load the first component
 my-app is the root component, refers to app.component file
 	
 	COMPONENTS:
@@ -114,10 +109,10 @@ ex:  export class AppComponent {
 		author: 'Vlad'
 	};
 }
-			{{ message.content }} - string inerpolotion
+			{{ message.content }} - string interpolation
 
 STYLING – CSS
-one way to add styling is add another congiguration to the medata, called STYLES:
+one way to add styling is add another configuration to the metada, called STYLES:
 ex: styles: [` 
 .author {
 display:inline;
@@ -126,3 +121,25 @@ display:inline;
 
 ngModel -  keyword or directive that allows data binding , it allows two types of binding: property binding and even binding, uses both to listen.
 Ex: [(ngModel)] = “message.content”
+
+
+directives- array that takes the component to link to the html tag specified
+	ex: directives: [MessageComponent]
+	
+
+Property Binding- uses square brackets [property] =”expression” -  means that we pass a value into the html element, the element we pass is the result of a javascript expression between the quotation mark, we can bind DOM properties(values, hidden), directives properties(ngstyle),component properties
+
+Event Binding – use parenthesis (event)= “expression” - listening to an event, once an event occurs, the expression on the right occurs., ex: DOM events, Directive events, Components events
+
+CUSTOM PROPERTY BINDING -  used in component and directives.
+Can be create in two ways:
+	@input(Alias) propertyName – using the angular @input
+	inputs: [propetyName:Alias] – inside the Component configuration metadata
+	usage:  <my-component> [propertyName]=“expression”</my-component> // Expression is the value we want to pass into the property(ex: method )
+
+Custom Event Binding - 
+	Can be create in two ways:
+	@output(Alias) eventName – using the angular @input
+	outputs: [eventName:Alias] – inside the Component configuration metadata
+usage:  <my-component> (eventName)=“expression”</my-component> // Expression run when event occurs(ex: method )
+
