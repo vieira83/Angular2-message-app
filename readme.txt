@@ -24,7 +24,7 @@ good practice name the files the first portion the foder they are in : ex: app.c
 						
 RUN THE NODE APP and server:
 In the terminal run – npm start
-To run tasks – npm gulp
+To run tasks – gulp
 
 
 NODE FLOW OF REQUESTS:
@@ -129,7 +129,15 @@ directives- array that takes the component to link to the html tag specified
 
 Property Binding- uses square brackets [property] =”expression” -  means that we pass a value into the html element, the element we pass is the result of a javascript expression between the quotation mark, we can bind DOM properties(values, hidden), directives properties(ngstyle),component properties
 
-Event Binding – use parenthesis (event)= “expression” - listening to an event, once an event occurs, the expression on the right occurs., ex: DOM events, Directive events, Components events
+Event Binding – use parenthesis (event)= “expression” - listening to an event, once an event occurs, the expression on the right occurs., ex: DOM events, Directive events, Components events. 
+	Ex: <a href="#" (click)="onClick()">Edit</a>
+
+	    export class MessageComponent {
+   		@Input() message:Message;
+    		onClick () {
+        	  this.message.content = "Changed The message"
+    		}
+	    }
 
 CUSTOM PROPERTY BINDING -  used in component and directives.
 Can be create in two ways:
@@ -141,5 +149,10 @@ Custom Event Binding -
 	Can be create in two ways:
 	@output(Alias) eventName – using the angular @input
 	outputs: [eventName:Alias] – inside the Component configuration metadata
-usage:  <my-component> (eventName)=“expression”</my-component> // Expression run when event occurs(ex: method )
+usage:  <my-component> (eventName)=“expression”</my-component> // Expression run when event occurs(ex: method )\
+	EMIT - 
+ 		@Output() ediClicked = new EventEmitter<string>()
+		this.ediClicked.emit('Changed the message');
+		//Emit() used to emit an event and everything listening to it will be able to act upon 
 
+	$EVENT – Jquery allways enclose the default vvalue passed with an event in an object, called $event
