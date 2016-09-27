@@ -145,7 +145,7 @@ Can be create in two ways:
 	inputs: [propetyName:Alias] – inside the Component configuration metadata
 	usage:  <my-component> [propertyName]=“expression”</my-component> // Expression is the value we want to pass into the property(ex: method )
 
-Custom Event Binding - 
+CUSTOM EVENT BINDING - 
 	Can be create in two ways:
 	@output(Alias) eventName – using the angular @input
 	outputs: [eventName:Alias] – inside the Component configuration metadata
@@ -155,4 +155,14 @@ usage:  <my-component> (eventName)=“expression”</my-component> // Expression
 		this.ediClicked.emit('Changed the message');
 		//Emit() used to emit an event and everything listening to it will be able to act upon 
 
-	$EVENT – Jquery allways enclose the default vvalue passed with an event in an object, called $event
+	$EVENT – Jquery allways enclose the default value passed with an event in an object, called $event
+
+DIRECTIVES – attached to the html, thei are instructions, they tell angular what to do. Directives selector work like css selectors.
+	*ngif – only attach this element and its children to the Dom if condition spcified in the quotation mark is met. Components are directives with a view and template
+	Ex: <section *ngif=”condition”>  
+There are two type of Directives:
+	Structural diretives – Adds or deletes part of the DoM. Begin with *
+	ex: *ngif=”show”
+	Atributes directives – only changes the appearance, attibutes values, but won add or delete.
+	Ex: ['ngStyle'] =”{'background-color: red'}”
+
