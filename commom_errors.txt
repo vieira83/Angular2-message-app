@@ -1,0 +1,12 @@
+Commom Errors:
+
+1- EXCEPTION: Error: Uncaught (in promise): TypeError: Cannot set property 'endSourceSpan' of null
+XCEPTION: Error: Uncaught (in promise): TypeError: Cannot set property 'endSourceSpan' of nullBrowserDomAdapter.logError @ angular2.dev.js:23877BrowserDomAdapter.logGroup @ angular2.dev.js:23888ExceptionHandler.call @ angular2.dev.js:1317(anonymous function) @ angular2.dev.js:12763schedulerFn @ angular2.dev.js:13167SafeSubscriber.__tryOrUnsub @ Rx.js:10775SafeSubscriber.next @ Rx.js:10730Subscriber._next @ Rx.js:10690Subscriber.next @ Rx.js:10667Subject._finalNext @ Rx.js:11191Subject._next @ Rx.js:11183Subject.next @ Rx.js:11142EventEmitter.emit @ angular2.dev.js:13148NgZone._zoneImpl.ng_zone_impl_1.NgZoneImpl.onError @ angular2.dev.js:13566NgZoneImpl.inner.inner.fork.onHandleError @ angular2.dev.js:2128ZoneDelegate.handleError @ angular2-polyfills.js:336Zone.runGuarded @ angular2-polyfills.js:244drainMicroTaskQueue @ angular2-polyfills.js:495ZoneTask.invoke @ angular2-polyfills.js:434
+angular2.dev.js:23877 STACKTRACE:BrowserDomAdapter.logError @ angular2.dev.js:23877ExceptionHandler.call @ angular2.dev.js:1319(anonymous function) @ angular2.dev.js:12763schedulerFn @ angular2.dev.js:13167SafeSubscriber.__tryOrUnsub @ Rx.js:10775SafeSubscriber.next @ Rx.js:10730Subscriber._next @ Rx.js:10690Subscriber.next @ Rx.js:10667Subject._finalNext @ Rx.js:11191Subject._next @ Rx.js:11183Subject.next @ Rx.js:11142EventEmitter.emit @ angular2.dev.js:13148NgZone._zoneImpl.ng_zone_impl_1.NgZoneImpl.onError @ angular2.dev.js:13566NgZoneImpl.inner.inner.fork.onHandleError @ angular2.dev.js:2128ZoneDelegate.handleError @ angular2-polyfills.js:336Zone.runGuarded @ angular2-polyfills.js:244drainMicroTaskQueue @ angular2-polyfills.js:495ZoneTask.invoke @ angular2-polyfills.js:434
+angular2.dev.js:23877 Error: Uncaught (in promise): TypeError: Cannot set property 'endSourceSpan' of null
+    at resolvePromise (angular2-polyfills.js:543)
+
+
+Solution: 
+Look for an open directive or missing quotes, or uncessary quotes:
+[ngstyle] instead of['ngStyle']
