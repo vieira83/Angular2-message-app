@@ -163,7 +163,7 @@ DIRECTIVES – attached to the html, thei are instructions, they tell angular wh
 There are two type of Directives:
 	Structural diretives – Adds or deletes part of the DoM. Begin with *
 	ex: *ngIf=”show”
-	ngIf -
+	ngIf – Condition statement, and condition template, will be show or not 
 	ngFor – Used to loop over variables:
 		#variable – how you declare a local variable 
 	Atributes directives – only changes the appearance, attibutes values, but won add or delete.
