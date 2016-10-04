@@ -11,10 +11,10 @@ import {MessageInputComponent} from './messages/message-input.component';
     		<input type="text" [(ngModel)]="message.content"/>
     	</section>-->
 
-        <my-message-input></my-message-input>
+      <my-message-input></my-message-input>
     </div>
     <div class="row">
-	   <my-message-list></my-message-list>
+      <my-message-list></my-message-list>
     </div>
     `,
     directives: [MessageListComponent, MessageInputComponent]

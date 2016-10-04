@@ -1,8 +1,9 @@
-//Start the filename with the name of the directory and then what 
+//Start the filename with the name of the directory and then what
 //it is component
 
 import {Component, Input, Output, EventEmitter} from "angular2/core";
-import {Message} from "./message" //same folder
+import {Message} from "./message"; //same folder
+import {MessageService} from "./message.service";
 
 @Component ({
 	selector: 'my-message', //should be unique
@@ -17,11 +18,11 @@ import {Message} from "./message" //same folder
     		 		{{ message.username }}
     		 	</div>
     		 	<div class="config">
-    		 		<a href="#" (click)="onClick()">Edit</a><!-- default click event -->
-    		 		<a href="#">Delete</a>
+    		 		<a href="#" (click)="onEdit()">Edit</a><!-- default click event -->
+    		 		<a href="#" (click)="onDelete()">Delete</a>
     		 	</div>
     		</footer>
-    	</article> 
+    	</article>
 	`,
 	 styles: [`
     	//this quote if wrong will cause issues
@@ -37,6 +38,8 @@ import {Message} from "./message" //same folder
     `]
 })
 export class MessageComponent {
+		constructor (private _messageService: MessageService) {}
+
 	//message: Message = new Message('the Content', null, 'Max');
     @Input() message:Message; // @input() sets up a custom property
 
@@ -49,4 +52,10 @@ export class MessageComponent {
         this.editClicked.emit('Changed the message');
         //Emit() used to emit an event and everything listening to it will be able to act upon it
     }
+		onEdit () {
+			this._messageService.editMessage(this.message);
+		}
+		onDelete() {
+			this._messageService.deleteMessage(this.message);
+		}
 }
