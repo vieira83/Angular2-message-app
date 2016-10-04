@@ -165,9 +165,12 @@ There are two type of Directives:
 	ex: *ngIf=”show”
 	ngIf – Condition statement, and condition template, will be show or not 
 	ngFor – Used to loop over variables:
-		#variable – how you declare a local variable 
+		#variable (old way)– how you declare a local variable 
+		let variable – new way of creating variable
 	Atributes directives – only changes the appearance, attibutes values, but won add or delete.
 	Ex: ['ngStyle'] =”{'background-color: red'}”
 
+Providers- component metadata tell angular what type of provider injectables we need in the class body
+	ex: providers: [MessageService]
 	
 

@@ -1,5 +1,6 @@
 import {Component} from 'angular2/core';
 import {Message} from "./message";
+import {MessageService} from "./message.service"
 
 //component decorator
 @Component({
@@ -16,8 +17,13 @@ import {Message} from "./message";
 	directives: []
 })
 export class MessageInputComponent {
+	// We pass the messages to the message.service
+	// Angular will check the constructor if there's a dependency injection
+	// We define a private property and bind the MessageServie to it
+	constructor(private _messageService: MessageService){}
 	onCreate(content:string) {
 		const message: Message = new Message(content, null, "Vlad");
+		this._messageService.addMessage(message);
 		console.log(message);
 	}
 }
